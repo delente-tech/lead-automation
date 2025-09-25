@@ -1,0 +1,33 @@
+# Python cache / build / logs
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+...
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Service account
+service_account.json
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs / coverage
+logs/
+*.log
+.pytest_cache/
+.coverage
+htmlcov/
