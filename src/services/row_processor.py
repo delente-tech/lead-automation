@@ -91,7 +91,7 @@ def process_row(row_data, sheet, row_idx, logger):
     }
 
     response = insert_lead_to_db(payload, logger)
-    status = "SUCCESS" if response and response.status_code == 200 else "ERROR_INSERTION"
+    status = "SUCCESS" if response and response.status_code == 201 else "ERROR_INSERTION"
     sheet.update_cell(row_idx, status_col_index, status)
     logger.info(f"Row {row_idx}: Insert result → {status}")
 

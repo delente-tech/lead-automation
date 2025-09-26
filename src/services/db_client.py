@@ -46,10 +46,11 @@ def get_campaign_from_mongo(brand_slug, model_slug, logger):
         logger.info(f"Loaded campaign from Redis for {brand_slug}/{model_slug}")
         return cached
 
-    client = MongoClient(settings.MONGO_URI,tls=True,
-    tlsCAFile=certifi.where())
-    db = client["carbike360"]
-    campaigns = db["campaigns"]
+    # client = MongoClient(settings.MONGO_URI,tls=True,
+    # tlsCAFile=certifi.where())
+    client = MongoClient(settings.MONGO_URI)
+    db = client[settings.MONGO_DB]
+    campaigns = db[settings.MONGO_CAMPAIGN_COLLECTION]
 
     campaign = campaigns.find_one({
         "brandSlug": brand_slug,
